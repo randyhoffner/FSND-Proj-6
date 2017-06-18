@@ -1,6 +1,6 @@
 # FSND-Proj-6
 ## Linux Server Configuration
-In this project, an Amazon Lightsail instance  is provisioned to run Apache  2 on Linux.  The server is secured; login via private key is facilitated; PostgreSQL and other required software is installed and configured; and the server is otherwise set up as detailed below.  Catalog app Randy's Liquor App, created in a previous FSND project, is cloned into the server, and modified and refactored to run on the Apache server.
+In this project, an Amazon Lightsail instance  is provisioned to run Apache  2 on Linux.  The server is secured; login via private key is facilitated.  A user named "grader" is created and given permission to sudo. PostgreSQL and other required software is installed and configured; and the server is otherwise set up as detailed below.  Catalog app Randy's Liquor App, created in a previous FSND project, is cloned into the server, and modified and refactored to run on the Apache server.
 ## Server Access
 ### IP address: 34.201.75.4
 ### SSH port: 2200
@@ -63,7 +63,7 @@ ssh -i ~/.ssh/newkey.pem ubuntu@34.201.75.4 -p 2200
 ```
 
 ### We will be at this prompt: "ubuntu@ip-172-26-15-127".  user is "ubuntu" and 172.26.15.127 is the private IP assigned by Lightsail.  We can also SSH in on Windows using puTTy, by using PuTTygen to convert newkey.pem to a PuTTy-compatible format, and then entering the IP address, checking connection type SSH, entering Auto-login username, and entering location of the private key file.  These SSH parameters are stored as a Saved Session in PuTTy, so that they are available for later use.
-### 12. Create a user named "grader".  Give grader permission to sudo:
+### 12. Create a user named "grader", and create a home directory for "grader".  Give grader permission to sudo:
 ```
 sudo useradd -m -s /bin/bash grader
 sudo usermod -aG sudo grader
