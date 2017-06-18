@@ -62,7 +62,7 @@ chmod 600 ~/.ssh/newkey.pem
 ssh -i ~/.ssh/newkey.pem ubuntu@34.201.75.4 -p 2200
 ```
 
-### We will be at this prompt: "ubuntu@ip-172-26-15-127".  user is "ubuntu" and 172.26.15.127 is the private IP assigned by Lightsail.  We can also SSH in on Windows using puTTy, by using PuTTygen to convert newkey.pem to a PuTTy-compatible format, and then entering the IP address, checking connection type SSH, entering Auto-login username, and entering location of the private key file.  These SSH parameters are stored as a Saved Session in PuTTy, so that they are available for later use.
+### We will be at this prompt: "ubuntu@ip-172-26-15-127".  user is "ubuntu" and 172.26.15.127 is the private IP assigned by Lightsail.  We can also SSH in on Windows using puTTy, by using PuTTygen to convert "newkey.pem" to a PuTTy-compatible format, and then entering the IP address, checking connection type SSH, entering Auto-login username, and entering location of the private key file.  These SSH parameters are stored as a Saved Session in PuTTy, so that they are available for later use.
 ### 12. Create a user named "grader", and create a home directory for "grader".  Give grader permission to sudo:
 ```
 sudo useradd -m -s /bin/bash grader
@@ -86,7 +86,7 @@ chmod 644 /home/grader/.ssh/authorized_keys
 ```
 ssh -i ~/.ssh/id_rsa grader@34.201.75.4 -p 2200
 ```
-### Produces grader login: "grader@ip-172-26-15-127".
+### Produces grader login: "grader@ip-172-26-15-127".  Confirm that grader can sudo.
 ### 16. Disable root login by editing /etc/ssh/sshd_config .  Change line that reads "PermitRootLogin yes" to "PermitRootLogin no", and uncomment the line "# PasswordAuthentication no".
 ### 17. Set instance to UTC
 ```
