@@ -47,7 +47,7 @@ sudo ufw status
 sudo service ssh restart
 ```
 ### When instance is restarted, we cannot SSH in on port 22, and we can therefore no longer use the Lightsail browser interface to SSH.  We must now SSH in on port 2200, using Mac Terminal or Windows PuTTy.
-### 10. The Lightsail instance is configured to use the "newkey" key pair, which was created in Lightsail.  Add downloaded private key newkey.pem to the OSX .ssh directory:
+### 10. The Lightsail instance is configured to use the "newkey" key pair, which was created in Lightsail.  Add downloaded private key "newkey.pem" to the OSX .ssh directory:
   * Open the Home directory
   * With focus on the Home directory, press CMD-SHIFT-G
   * Enter "~/.ssh/" in the "Go to the folder:" dialog box and click GO.
@@ -228,7 +228,7 @@ sudo -u postgres psql
 ```
 \c catalog \dt
 ```
-### Verify that all tables in catalog dabase are listed.  Then close postgres:
+### Verify that all tables created by /var/www/catalog/catalog/database_setup.py are listed.  Then close postgres:
 ```
 \q
 ```
@@ -302,11 +302,13 @@ sudo service apache reload
 
 ## Sources
 ### In addition to the Udacity classroom material, cited sources, forums, and 1:1 sessions, the following sources were consulted.
-* 	  www.digitalocean.com
-*     http://askubuntu.com
-* 	  www.chiark.greenend.org.uk (PuTTy)
-* 	  Ubuntu Documentation
-* 	  For PostgreSQL:  www.digitalocean.com; killtheyak.com; PostgreSQL Documentation
-* 	  Apache2 Documentation
-* 	  Terminal help for /.ssh from http://apple.stackexchange.com and www.thinkplex.com
-* 	  stackoverflow.com
+* www.digitalocean.com
+* http://askubuntu.com
+* www.chiark.greenend.org.uk (PuTTy)
+* www.computerhope.com/unix/ (useradd, usermod)
+* Ubuntu Documentation
+* For PostgreSQL:  www.digitalocean.com; killtheyak.com; PostgreSQL Documentation
+* Apache2 Documentation
+* Terminal help for /.ssh from http://apple.stackexchange.com and www.thinkplex.com
+* stackoverflow.com
+* https://code.google.com/archive/p/modwsgi/wikis/ConfigurationDirectives.wiki
