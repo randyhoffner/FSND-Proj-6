@@ -1,6 +1,6 @@
 # FSND-Proj-6
 ## Linux Server Configuration
-In this project, an Amazon Lightsail instance  is provisioned to run Apache  2 on Linux.  The server is secured; login via private key is facilitated.  A user named "grader" is created and given permission to sudo. PostgreSQL and other required software is installed and configured; and the server is otherwise set up as detailed below.  Catalog app Randy's Liquor App, created in a previous FSND project, is cloned into the server, and modified and refactored to run on the Apache server.
+In this project, an Amazon Lightsail instance  is provisioned to run Apache  2 on Linux.  The server is secured; login via private key is facilitated.  A user named "grader" is created and given permission to sudo. PostgreSQL and other required software is installed and configured; and the server is otherwise set up as detailed below.  Catalog app Randy's Liquor App, created in a previous FSND project, is cloned into the server, and modified and refactored to run on the Apache server using PostgreSQL.
 ## Server Access
 ### IP address: 34.201.75.4
 ### SSH port: 2200
@@ -24,7 +24,6 @@ sudo dpkg-reconfigure -plow unattended-upgrades
 ```
 ### Respond appropriately to queries.
 ### 7. Configure ufw (uncomplicated firewall).  First, deny all incoming.  Then, allow all outgoing. Then, allow incoming from these ports:
-   * 22 (default ssh port)
    * 2200 (new ssh port)
    * 80 (web traffic)
    * 123 (NTP)
@@ -215,7 +214,7 @@ sudo -u postgres psql
 ```
 \list
 ```
-### Confirm that "catalog" database is listed.  Close PostgreSQL and restart Apache:
+### Confirm that "catalog" database is listed.  Close PostgreSQL and restart Apache so database_setup.py runs:
 ```
 \q
 sudo service apache2 restart
