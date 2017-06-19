@@ -73,11 +73,11 @@ ssh-keygen -t rsa
 ```
 ### Answer dialog queries; put key pair in "~/.ssh/" directory.  On Ubuntu instance, set up grader SSH key.  As root user:
 ```
-mkdir /home/grader/.ssh
-chown grader:grader /home/grader/.ssh
-chmod 70 /home/grader/ssh
-chown grader:grader /home/grader/.ssh/authorized_keys
-chmod 644 /home/grader/.ssh/authorized_keys
+sudo mkdir /home/grader/.ssh
+sudo chown grader:grader /home/grader/.ssh
+sudo chmod 70 /home/grader/ssh
+sudo chown grader:grader /home/grader/.ssh/authorized_keys
+sudo chmod 644 /home/grader/.ssh/authorized_keys
 ```
 
 ### 14. Copy grader public key to /home/grader/.ssh/authorized_keys.  Name of grader private key shown above in Server Access section.  Private key to be copied to "Comments" section of project submission form.
@@ -86,7 +86,7 @@ chmod 644 /home/grader/.ssh/authorized_keys
 ssh -i ~/.ssh/id_rsa grader@34.201.75.4 -p 2200
 ```
 ### Produces grader login: "grader@ip-172-26-15-127".  Confirm that grader can sudo.
-### 16. Disable root login by editing /etc/ssh/sshd_config .  Change line that reads "PermitRootLogin yes" to "PermitRootLogin no", and uncomment the line "# PasswordAuthentication no".
+### 16. Disable root login by editing /etc/ssh/sshd_config .  Change line that reads "PermitRootLogin prohibit-password" to "PermitRootLogin no", and make sure the line "PasswordAuthentication no" is not commented out.
 ### 17. Set instance to UTC
 ```
 sudo timedatectl set-timezone UTC
