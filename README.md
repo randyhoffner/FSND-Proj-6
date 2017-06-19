@@ -46,7 +46,7 @@ sudo ufw status
 sudo service ssh restart
 ```
 ### When instance is restarted, we cannot SSH in on port 22, and we can therefore no longer use the Lightsail browser interface to SSH.  We must now SSH in on port 2200, using Mac Terminal or Windows PuTTy.
-### 10. The Lightsail instance is configured to use the "newkey" key pair, which was created in Lightsail.  Add downloaded private key "newkey.pem" to the OSX .ssh directory:
+### 10. The Lightsail instance is configured to use the "newkey" key pair, which was created in Lightsail.  Add downloaded private key "newkey.pem" to the OSX /.ssh/ directory:
   * Open the Home directory
   * With focus on the Home directory, press CMD-SHIFT-G
   * Enter "~/.ssh/" in the "Go to the folder:" dialog box and click GO.
@@ -300,7 +300,7 @@ sudo service apache reload
 ### Clicking on the category name, eg Bourbon, takes you to the Bourbon menu page, which contains a list of bourbons and their descriptions.  You may add, edit, or delete an item if you created the category.  To get back to the home page, click on the "Show All Categories" button.  
 
 ## Sources
-### In addition to the Udacity classroom material, cited sources, forums, and 1:1 sessions, the following sources were consulted.
+### In addition to the Udacity classroom material, cited sources, forums, and 1:1 sessions, the following sources were consulted:
 * www.digitalocean.com
 * http://askubuntu.com
 * www.chiark.greenend.org.uk (PuTTy)
