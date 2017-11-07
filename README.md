@@ -2,14 +2,14 @@
 ## Linux Server Configuration
 In this project, an Amazon Lightsail instance  is provisioned to run Apache  2 on Linux.  The server is secured; login via private key is facilitated.  A user named "grader" is created and given permission to sudo. PostgreSQL and other required software is installed and configured; and the server is otherwise set up as detailed below.  Catalog app Randy's Liquor App, created in a previous FSND project, is cloned into the server, and modified and refactored to run on the Apache server using PostgreSQL.
 ## Server Access
-### IP address: 34.201.75.4
+### IP address: 52.37.4.72
 ### SSH port: 2200
 ### URL: ec2-34-201-75-4.compute-1 amazonaws.com
 ### grader login: ssh -i ~/.ssh/id_rsa grader@34/201.75.4 -p 2200
 ### grader password: 111
 ## Walkthrough
-### 1. Create Lightsail Ubuntu 16.04 instance "randyhoffner1".
-### 2. Attach static IP address 34.201.75.4 to instance.
+### 1. Create Lightsail Ubuntu 16.04 instance 'Randys_New_Liquor_App'.
+### 2. Attach static IP address 52.37.4.72 to instance.
 ### 3. Allow port 2200 and port 123 on Lightsail Networking tab.
 ### 4. SSH into instance using Lightsail browser interface.
 ### 5.Update Ubuntu to latest release and install automatic security updates:
@@ -46,22 +46,22 @@ sudo ufw status
 sudo service ssh restart
 ```
 ### When instance is restarted, we cannot SSH in on port 22, and we can therefore no longer use the Lightsail browser interface to SSH.  We must now SSH in on port 2200, using Mac Terminal or Windows PuTTy.
-### 10. The Lightsail instance is configured to use the "newkey" key pair, which was created in Lightsail.  Add downloaded private key "newkey.pem" to the OSX /.ssh/ directory:
+### 10. The Lightsail instance is configured to use the Default key pair, which was created in Lightsail.  Add downloaded default private key to the OSX /.ssh/ directory:
   * Open the Home directory
   * With focus on the Home directory, press CMD-SHIFT-G
   * Enter "~/.ssh/" in the "Go to the folder:" dialog box and click GO.
-  * Copy and paste "newkey.pem" to the /.ssh/ folder.
-  * Assign owner read and write permissions to "newkey.pem" by running the terminal command:
+  * Copy and paste default private key to the /.ssh/ folder.
+  * Assign owner read and write permissions to default private key by running the terminal command:
 
 ```
-chmod 600 ~/.ssh/newkey.pem
+chmod 600 ~/.ssh/defaultkey.pem
 ```
 ### 11. SSH in from Mac Teminal using
 ```
-ssh -i ~/.ssh/newkey.pem ubuntu@34.201.75.4 -p 2200
+ssh -i ~/.ssh/defaultkey.pem ubuntu@52.37.4.72 -p 2200
 ```
 
-### We will be at this prompt: "ubuntu@ip-172-26-15-127".  user is "ubuntu" and 172.26.15.127 is the private IP assigned by Lightsail.  We can also SSH in on Windows using puTTy, by using PuTTygen to convert "newkey.pem" to a PuTTy-compatible format, and then entering the IP address, checking connection type SSH, entering Auto-login username, and entering location of the private key file.  These SSH parameters are stored as a Saved Session in PuTTy, so that they are available for later use.
+### We will be at this prompt: "ubuntu@ip-172-26-10-181".  user is "ubuntu" and 172.26.10.182 is the private IP assigned by Lightsail.  We can also SSH in on Windows using puTTy, by using PuTTygen to convert "newkey.pem" to a PuTTy-compatible format, and then entering the IP address, checking connection type SSH, entering Auto-login username, and entering location of the private key file.  These SSH parameters are stored as a Saved Session in PuTTy, so that they are available for later use.
 ### 12. Create a user named "grader", and create a home directory for "grader".  Give grader permission to sudo:
 ```
 sudo useradd -m -s /bin/bash grader
@@ -103,7 +103,7 @@ sudo apt-get install ntp
 sudo apt-get install apache2
 ```
 
-### Verify installation by navigating to http://34.201.75.4 and seeing, "Apache2 Ubuntu Default Page"
+### Verify installation by navigating to http://52.37.4.72 and seeing, "Apache2 Ubuntu Default Page"
 ### 20. Install mod-wsgi:
 ```
 sudo apt-get install libapache2-mod-wsgi
@@ -111,7 +111,7 @@ sudo apt-get install libapache2-mod-wsgi
 
 ### 21. To configure Apache2 to serve the app, edit "/etc/apache2/sites-enabled/000-default.conf" by adding this line:  
 
-WSGIScriptAlias/var/www/html/myapp.wsgi
+WSGIScriptAlias / /var/www/html/myapp.wsgi
 
 ### just above
 
